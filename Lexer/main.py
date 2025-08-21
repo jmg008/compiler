@@ -1,4 +1,4 @@
-from lexer import lex
+from Lexer import lex
 from Token import Kind
 
 sourceCode = """\
@@ -6,8 +6,10 @@ sourceCode = """\
       print 'Hello, World!';
     }"""
 tokenList = lex(sourceCode)
+print("Kind                 : String")
+print("--------------------------------")
 for i in tokenList:
 	if i != Kind.EndOfToken:
-		print(f"{i.kind} : {i.string}")
+		print(f"{i.kind:20} : {i.string}")
 	else:
 		print("#EndOfToken")

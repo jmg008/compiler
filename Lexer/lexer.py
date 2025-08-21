@@ -73,8 +73,6 @@ def scanOperatorAndPunctuator()->Token:
         current = next(codeIter)
     tmp = []
     while string != [] and toKind(''.join(string)) == Kind.Unknown:
-        print(''.join(string))
-        print(toKind(''.join(string)))
         tmp = [string.pop()]+tmp
     if string == []:
         print(tmp[0] + " 사용못하는문자")
