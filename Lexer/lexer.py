@@ -89,7 +89,7 @@ def scanOperatorAndPunctuator()->Token:
     tmp += '\0'
     codeIter = iter(tmp)
     current = tmpcurrent
-    return Token(toKind(''.join(string)), string)
+    return Token(toKind(''.join(string)), ''.join(string))
 
 def lex(sourceCode: str)->list[Token]:
     result = []
@@ -115,7 +115,3 @@ def lex(sourceCode: str)->list[Token]:
             exit(1)
     result.append(Kind.EndOfToken)
     return result
-
-print(lex("""function main() {
-      print 'Hello, World!';
-    }"""))
