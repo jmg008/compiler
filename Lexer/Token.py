@@ -49,7 +49,7 @@ stringToKind = {
     "(":           Kind.LeftParen,
     ")":           Kind.RightParen,
     "{":           Kind.LeftBrace,
-    "":            Kind.RightBrace,
+    "}":            Kind.RightBrace,
     "[":           Kind.LeftBraket,
     "]":           Kind.RightBraket,
 }
@@ -58,3 +58,8 @@ class Token:
     def __init__(self, kind:Kind, string:str):
         self.kind = kind
         self.string = string
+
+def toKind(string)->Kind:
+    if string in stringToKind:
+        return stringToKind[string]
+    return Kind.Unknown
