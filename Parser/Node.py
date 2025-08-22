@@ -96,6 +96,10 @@ class SetElement(Expression):
         self.index = index
         self.value = value
 
+class GetVariable(Expression):
+    def __init__(self, name: str = None):
+        self.name = name
+
 class SetVariable(Expression):
     def __init__(self, name: str = None, value: Expression = None):
         self.name = name
@@ -122,3 +126,8 @@ class ArrayLiteral(Expression):
 class MapLiteral(Expression):
     def __init__(self, values: dict[str: Expression] = {}):
         self.values = values
+
+def downCast(obj, targetClass):
+    if issubclass(targetClass, type(obj)):
+        return targetClass(**vars(obj))
+    return None

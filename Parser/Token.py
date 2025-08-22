@@ -54,12 +54,19 @@ stringToKind = {
     "]":           Kind.RightBraket,
 }
 
+kindToString = {stringToKind[i]:i for i in stringToKind}
+
 class Token:
     def __init__(self, kind:Kind, string:str):
         self.kind = kind
         self.string = string
 
-def toKind(string)->Kind:
+def toKind(string: str)->Kind:
     if string in stringToKind:
         return stringToKind[string]
     return Kind.Unknown
+
+def toString(kind: Kind):
+    if kind in kindToString:
+        return kindToString[kind]
+    return ""
