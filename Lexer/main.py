@@ -4,6 +4,7 @@ from Token import Kind
 sourceCode = """\
     function main() {
       print 'Hello, World!';
+      var a = {1: 2};
     }"""
 tokenList = lex(sourceCode)
 print("Kind                 : String")
@@ -11,5 +12,3 @@ print("--------------------------------")
 for i in tokenList:
 	if i != Kind.EndOfToken:
 		print(f"{i.kind:20} : {i.string}")
-	else:
-		print("#EndOfToken")
